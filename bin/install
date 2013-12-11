@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export PRIYANKA_VAR=xyzabc
+export PRIYANKA_VAR_TEST=xyzabc

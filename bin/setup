@@ -1,0 +1,3 @@
+#!/bin/bash -e
+
+export PRIYANKA_VAR_SETUP=testingtesting
