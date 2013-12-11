@@ -2,8 +2,8 @@ Name: priyanka
 Cartridge-Short-Name: priyanka
 Display-Name: OpenShift Cartridge Development Kit
 Version: "1.0"
-Source-Url: git@github.com:Priyanka5/CartridgeTest.git
 Website: https://github.com/Priyanka5/CartridgeTest
+Source-Url: git@github.com:Priyanka5/CartridgeTest.git
 Cartridge-Version: 0.1.0
 Cartridge-Vendor: smarterclayton
 Categories:
@@ -29,5 +29,3 @@ Endpoints:
       - Frontend:      ""
         Backend:       ""
         Options:       { websocket: false }
-		
-
