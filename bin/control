@@ -22,28 +22,6 @@ function start() {
         return 0
     fi
 
-    pushd "$OPENSHIFT_REPO_DIR" > /dev/null
-    {
-        servicegatewaydir=$(cat .servicegatewaydir)
-        package=$(basename $servicegatewaydir)
-
-        if [ -f "bin/$package" ]; then
-            echo "`date +"$FMT"`: Starting application '$OPENSHIFT_APP_NAME' from bin/$package..."
-
-            nohup "bin/$package" >> $logf 2>&1 &
-
-            ret=$?
-            npid=$!
-            if [ $ret -eq 0 ]; then
-                echo "$npid" > "$OPENSHIFT_SERVICEGATEWAY_DIR/pid/servicegateway.pid"
-            else
-                echo "Application '$OPENSHIFT_APP_NAME' failed to start - $ret" 1>&2
-                exit $ret
-            fi
-        else
-            echo "WARN: Could not find the compiled application bin/$package, will not start"
-        fi
-    } >> $logf
 }
 
 function stop() {
