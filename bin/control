@@ -3,7 +3,7 @@
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 function start() {
-    logf="$OPENSHIFT_SERVICEGATEWAY_DIR/logs/servicegateway.log"
+    logf="$OPENSHIFT_SERVICEGATEWAY_DIR/logs"
 
     if is_servicegateway_service_running; then
         echo "`date +"$FMT"`: Application '$OPENSHIFT_APP_NAME' is already running; skipping start()"
