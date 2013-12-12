@@ -4,8 +4,8 @@ source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 function is_servicegateway_service_running() {
     if [ -f $OPENSHIFT_SERVICEGATEWAY_DIR/pid]; then
-        go_pid=$( cat $OPENSHIFT_SERVICEGATEWAY_DIR/pid/go.pid 2> /dev/null )
-        if ps --pid $go_pid 2>&1; then
+       servicegateway_pid=$( cat $OPENSHIFT_SERVICEGATEWAY_DIR/pid/servicegateway.pid 2> /dev/null )
+        if ps --pid $servicegateway_pid 2>&1; then
             return 0
         fi
     fi
@@ -87,6 +87,9 @@ function tidy() {
   rm -rf $OPENSHIFT_SERVICEGATEWAY_DIR/tmp/*
 }
 
+function catchall {
+    echo "not yet implemented"
+}
 
 
 case "$1" in
@@ -94,4 +97,10 @@ case "$1" in
   stop) stop ;;
   status) status ;;
   tidy)  tidy    ;;
+  reload)      catchall ;;
+  tidy)        catchall ;;
+  pre-build)   catchall ;;
+  build)       catchall ;;
+  deploy)      catchall ;;
+  post-deploy) catchall ;;
 esac
