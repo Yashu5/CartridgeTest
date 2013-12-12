@@ -1,11 +1,11 @@
 Name: servicegateway
 Cartridge-Short-Name: servicegateway
-Display-Name: OpenShift Cartridge Test
+Display-Name: OpenShift Cartridge Test SERVICEGATEWAY
 Version: "1.0"
-Website: https://github.com/servicegateway5/CartridgeTest
-Source-Url: https://github.com/servicegateway5/CartridgeTest.git
+Website: https://github.com/Priyanka5/CartridgeTest
+Source-Url: https://github.com/Priyanka5/CartridgeTest.git
 Cartridge-Version: 0.1.0
-Cartridge-Vendor: servicegateway
+Cartridge-Vendor: priyanka
 Categories:
   - service
   - gateway

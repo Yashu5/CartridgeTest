@@ -3,7 +3,7 @@
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 function start() {
-    logf="$OPENSHIFT_servicegateway_DIR/logs/servicegateway.log"
+    logf="$OPENSHIFT_SERVICEGATEWAY_DIR/logs/servicegateway.log"
 
     if is_servicegateway_service_running; then
         echo "`date +"$FMT"`: Application '$OPENSHIFT_APP_NAME' is already running; skipping start()"
@@ -23,7 +23,7 @@ function start() {
             ret=$?
             npid=$!
             if [ $ret -eq 0 ]; then
-                echo "$npid" > "$OPENSHIFT_servicegateway_DIR/pid/servicegateway.pid"
+                echo "$npid" > "$OPENSHIFT_SERVICEGATEWAY_DIR/pid/servicegateway.pid"
             else
                 echo "Application '$OPENSHIFT_APP_NAME' failed to start - $ret" 1>&2
                 exit $ret
@@ -35,12 +35,12 @@ function start() {
 }
 
 function stop() {
-    if [ -f $OPENSHIFT_servicegateway_DIR/pid/servicegateway.pid ]; then
+    if [ -f $OPENSHIFT__DIR/pid/servicegateway.pid ]; then
         servicegateway_pid=$( cat $OPENSHIFT_servicegateway_DIR/pid/servicegateway.pid 2> /dev/null )
     fi
 
     if [ -n "$servicegateway_pid" ]; then
-        logf="$OPENSHIFT_servicegateway_DIR/logs/servicegateway.log"
+        logf="$OPENSHIFT_SERVICEGATEWAY_DIR/logs/servicegateway.log"
         echo "`date +"$FMT"`: Stopping application '$OPENSHIFT_APP_NAME' ..." >> $logf
         /bin/kill $servicegateway_pid
         ret=$?
@@ -54,7 +54,7 @@ function stop() {
         fi
 
         echo "`date +"$FMT"`: Stopped servicegateway application '$OPENSHIFT_APP_NAME'" >> $logf
-        rm -f $OPENSHIFT_servicegateway_DIR/pid/servicegateway.pid
+        rm -f $OPENSHIFT_SERVICEGATEWAY_DIR/pid/servicegateway.pid
     else
         echo "Warning: Application '$OPENSHIFT_APP_NAME' server exists without a pid file.  Use force-stop to kill." 1>&2
     fi
@@ -69,10 +69,10 @@ function status() {
 }
 
 function tidy() {
-  client_message "Emptying log dir: $OPENSHIFT_servicegateway_DIR/logs"
+  client_message "Emptying log dir: $OPENSHIFT_SERVICEGATEWAY_DIR/logs"
   shopt -s dotglob
-  rm -rf $OPENSHIFT_servicegateway_DIR/logs/*
-  rm -rf $OPENSHIFT_servicegateway_DIR/tmp/*
+  rm -rf $OPENSHIFT_SERVICEGATEWAY_DIR/logs/*
+  rm -rf $OPENSHIFT_SERVICEGATEWAY_DIR/tmp/*
 }
 
 

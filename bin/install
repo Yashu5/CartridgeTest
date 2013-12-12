@@ -1,3 +1,3 @@
 #!/bin/bash
-echo >$OPENSHIFT_servicegateway_DIR/env/OPENSHIFT_servicegateway_TEST_INSTALL
-echo "servicegatewayguptainstall" > $OPENSHIFT_servicegateway_DIR/env/OPENSHIFT_servicegateway_TEST_INSTALL
+echo >$OPENSHIFT_SERVICEGATEWAY_DIR/env/OPENSHIFT_SERVICEGATEWAY_TEST_INSTALL
+echo "servicegatewayinstall" > $OPENSHIFT_servicegateway_DIR/env/OPENSHIFT_SERVICEGATEWAY_TEST_INSTALL
