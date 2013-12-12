@@ -2,6 +2,18 @@
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
+function is_servicegateway_service_running() {
+    if [ -f $OPENSHIFT_SERVICEGATEWAY_DIR/pid]; then
+        go_pid=$( cat $OPENSHIFT_SERVICEGATEWAY_DIR/pid/go.pid 2> /dev/null )
+        if ps --pid $go_pid 2>&1; then
+            return 0
+        fi
+    fi
+
+    return 1
+}
+
+
 function start() {
     logf="$OPENSHIFT_SERVICEGATEWAY_DIR/logs"
 
