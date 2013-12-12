@@ -3,7 +3,9 @@
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 function is_servicegateway_service_running() {
-    if [ -f $OPENSHIFT_SERVICEGATEWAY_DIR/pid]/servicegateway.pid ; then
+echo >$OPENSHIFT_SERVICEGATEWAY_DIR/pid/servicegateway.pid
+
+ if [ -f $OPENSHIFT_SERVICEGATEWAY_DIR/pid]/servicegateway.pid ; then
        servicegateway_pid=$( cat $OPENSHIFT_SERVICEGATEWAY_DIR/pid/servicegateway.pid 2> /dev/null )
         if ps --pid $servicegateway_pid 2>&1; then
             return 0
