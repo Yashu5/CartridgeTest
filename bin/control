@@ -26,7 +26,7 @@ function start() {
 
 function stop() {
     if [ -f $OPENSHIFT__DIR/pid/servicegateway.pid ]; then
-        servicegateway_pid=$( cat $OPENSHIFT_servicegateway_DIR/pid/servicegateway.pid 2> /dev/null )
+        servicegateway_pid=$( cat $OPENSHIFT_SERVICEGATEWAY_DIR/pid/servicegateway.pid 2> /dev/null )
     fi
 
     if [ -n "$servicegateway_pid" ]; then
