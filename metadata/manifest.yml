@@ -5,7 +5,7 @@ Version: "1.0"
 Website: https://github.com/Priyanka5/CartridgeTest
 Source-Url: https://github.com/Priyanka5/CartridgeTest.git
 Cartridge-Version: 0.1.0
-Cartridge-Vendor: smarterclayton
+Cartridge-Vendor: Priyanka
 Categories:
   - service
   - gateway
@@ -28,4 +28,4 @@ Endpoints:
     Mappings:
       - Frontend:      ""
         Backend:       ""
-        Options:       { websocket: false }
+        
