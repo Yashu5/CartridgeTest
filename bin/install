@@ -1,3 +1,3 @@
 #!/bin/bash
-echo >$OPENSHIFT_PRIYANKA_DIR/env/OPENSHIFT_PRIYANKA_TEST_INSTALL
-echo "priyankaguptainstall" > $OPENSHIFT_PRIYANKA_DIR/env/OPENSHIFT_PRIYANKA_TEST_INSTALL
+echo >$OPENSHIFT_servicegateway_DIR/env/OPENSHIFT_servicegateway_TEST_INSTALL
+echo "servicegatewayguptainstall" > $OPENSHIFT_servicegateway_DIR/env/OPENSHIFT_servicegateway_TEST_INSTALL
