@@ -8,8 +8,8 @@ Cartridge-Version: 0.1.0
 Cartridge-Vendor: smarterclayton
 Categories:
   - service
-  - web_framework
-  - ci_builder
+  - gateway
+  - embedded
 Provides:
   - priyanka-1.0
   - "priyanka"
