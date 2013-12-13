@@ -42,7 +42,7 @@ function stop() {
 
     if [ -n "$servicegateway_pid" ]; then
         echo "`date +"$FMT"`: Stopping application '$OPENSHIFT_APP_NAME' ..." >> $logf
-        kill -9 $servicegateway_pid"
+        kill -9 $servicegateway_pid
         echo "Cartridge has stopped........."
         
     else
