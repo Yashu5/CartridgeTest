@@ -19,7 +19,7 @@ function is_servicegateway_service_running() {
 
 function start() {
     logf="$OPENSHIFT_SERVICEGATEWAY_DIR/logs/servicegateway.log"
-	echo echo "Starting cartridge......." >>$logf
+	echo "Starting cartridge......." >>$logf
 
     if is_servicegateway_service_running; then
         echo "`date +"$FMT"`: Application '$OPENSHIFT_APP_NAME' is already running; skipping start()"
@@ -33,15 +33,17 @@ echo $! > $OPENSHIFT_SERVICEGATEWAY_DIR/pid/servicegateway.pid
 }
 
 function stop() {
+   logf="$OPENSHIFT_SERVICEGATEWAY_DIR/logs/servicegateway.log"
     if [ -f $OPENSHIFT_SERVICEGATEWAY_DIR/pid/servicegateway.pid ]; then
         servicegateway_pid=$( cat $OPENSHIFT_SERVICEGATEWAY_DIR/pid/servicegateway.pid 2> /dev/null )
+		echo "Process ID " $servicegateway_pid 
+		echo "Process ID " $servicegateway_pid >>logf
     fi
 
     if [ -n "$servicegateway_pid" ]; then
-        logf="$OPENSHIFT_SERVICEGATEWAY_DIR/logs/servicegateway.log"
         echo "`date +"$FMT"`: Stopping application '$OPENSHIFT_APP_NAME' ..." >> $logf
-        /bin/kill $servicegateway_pid
-        ret=$?
+        kill -9 $servicegateway_pid"
+        echo "Cartridge has stopped........."
         
     else
         echo "Warning: Application '$OPENSHIFT_APP_NAME' server exists without a pid file.  Use force-stop to kill." 1>&2
