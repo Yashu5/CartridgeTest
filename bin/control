@@ -42,17 +42,7 @@ function stop() {
         echo "`date +"$FMT"`: Stopping application '$OPENSHIFT_APP_NAME' ..." >> $logf
         /bin/kill $servicegateway_pid
         ret=$?
-        if [ $ret -ne 0 ]; then
-            TIMEOUT="$STOPTIMEOUT"
-            while [ $TIMEOUT -gt 0 ] && is_servicegateway_service_running ; do
-                /bin/kill -0 "$servicegateway_pid" >/dev/null 2>&1 || break
-                sleep 1
-                let TIMEOUT=${TIMEOUT}-1
-            done
-        fi
-
-        echo "`date +"$FMT"`: Stopped servicegateway application '$OPENSHIFT_APP_NAME'" >> $logf
-        rm -f $OPENSHIFT_SERVICEGATEWAY_DIR/pid/servicegateway.pid
+        
     else
         echo "Warning: Application '$OPENSHIFT_APP_NAME' server exists without a pid file.  Use force-stop to kill." 1>&2
     fi
